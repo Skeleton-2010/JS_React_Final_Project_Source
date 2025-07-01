@@ -1,0 +1,32 @@
+.app-footer-main{
+    width: 100%;
+    height: 20vh;
+    background-color: #c84;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.footer-logo-img,
+.footer-address,
+.footer-nav{
+    margin-left: 100px;
+}
+
+.footer-logo-img{
+    height: 40%;
+}
+
+.footer-nav{
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-title{
+    margin-bottom: 10px;
+}
+
+.footer-link{
+    color: #000;
+}
