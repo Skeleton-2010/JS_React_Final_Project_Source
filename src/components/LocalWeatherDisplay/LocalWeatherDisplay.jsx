@@ -14,6 +14,15 @@ export const LocalWeatherDisplay = ({ city, lat, lon, id }) => {
 
   const dispatch = useDispatch();
 
+  const getWeatherIcon = (iconCode) => {
+    try {
+      return require(`../../assets/images/${iconCode}.png`);
+    } catch (error) {
+      console.error(`Failed to load weather icon: ${iconCode}`, error);
+      return null;
+    }
+  };
+
   const handleGetWeather = async () => {
     try {
       setLoading(true);
@@ -46,9 +55,9 @@ export const LocalWeatherDisplay = ({ city, lat, lon, id }) => {
       {localWeather !== 0 && !loading && (
         <div className="weather-listing">
           {localWeather.weather.map((c, idx) => (
-            <div className="listing-el">
+            <div className="listing-el" key={idx}>
               <img
-                src={`/img/${c.icon}.png`}
+                src={getWeatherIcon(c.icon)}
                 alt="Weather"
                 className="local-weather-icon"
               />

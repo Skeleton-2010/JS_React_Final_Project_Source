@@ -5,6 +5,15 @@ import { fetchWeather } from "../../services/dataSearch";
 
 import "./WeatherPage.css";
 
+// Імпортуємо зображення
+import visHi from "../../assets/images/vishi.png";
+import visLo from "../../assets/images/vislo.png";
+import humIcon from "../../assets/images/hum.png";
+import winHi from "../../assets/images/winhi.png";
+import winLo from "../../assets/images/winlo.png";
+import feelsIcon from "../../assets/images/feels.png";
+import presIcon from "../../assets/images/pres.png";
+
 export const WeatherPage = () => {
   const [weatherInfo, setWeatherInfo] = useState({});
   const [loading, setLoading] = useState(true);
@@ -50,7 +59,7 @@ export const WeatherPage = () => {
       <div className="weather-info-main">
         <div className="weather-factor">
           <img
-            src={goodVisibility ? "/img/vishi.png" : "/img/vislo.png"}
+            src={goodVisibility ? visHi : visLo}
             alt="visibility"
           />
           <h5>{goodVisibility ? "High Visibility" : "Low Visibility"}</h5>
@@ -58,14 +67,14 @@ export const WeatherPage = () => {
         </div>
 
         <div className="weather-factor">
-          <img src="/img/hum.png" alt="humidity" />
+          <img src={humIcon} alt="humidity" />
           <h5>{highHumidity ? "High Humidity" : "Low Humidity"}</h5>
           <h2>{weatherInfo.main.humidity}%</h2>
         </div>
 
         <div className="weather-factor">
           <img
-            src={fastWind ? "/img/winhi.png" : "/img/winlo.png"}
+            src={fastWind ? winHi : winLo}
             alt="winds"
           />
           <h5>{fastWind ? "Fast Winds" : "Slow Winds"}</h5>
@@ -73,13 +82,13 @@ export const WeatherPage = () => {
         </div>
 
         <div className="weather-factor">
-          <img src="/img/feels.png" alt="feels" />
+          <img src={feelsIcon} alt="feels" />
           <h5>Feels Like</h5>
           <h2>{weatherInfo.main.feels_like}°C</h2>
         </div>
 
         <div className="weather-factor">
-          <img src="/img/pres.png" alt="pressure" />
+          <img src={presIcon} alt="pressure" />
           <h5>Pressure</h5>
           <h2>{weatherInfo.main.pressure} Pa</h2>
         </div>
