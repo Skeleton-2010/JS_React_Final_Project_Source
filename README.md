@@ -1,8 +1,31 @@
 # Weather Forecast Application
 
+<div align="center">
+  <img src="public/img/ForecastLogoBig.png" alt="Weather Forecast Logo" width="200"/>
+  
+  <br/>
+  <br/>
+  
+  <img src="public/img/clouds.png" alt="Weather Banner" width="100%"/>
+</div>
+
 ## Опис проекту
 
 Weather Forecast - це веб-додаток для перегляду погодних умов у різних містах світу. Додаток розроблено з використанням React та надає користувачам можливість отримувати актуальну інформацію про погоду, включаючи температуру, вологість, видимість, тиск та швидкість вітру.
+
+## Іконки погодних умов
+
+<div align="center">
+  <img src="public/img/01d.png" alt="Clear Sky Day" width="50"/>
+  <img src="public/img/02d.png" alt="Few Clouds" width="50"/>
+  <img src="public/img/03d.png" alt="Scattered Clouds" width="50"/>
+  <img src="public/img/04d.png" alt="Broken Clouds" width="50"/>
+  <img src="public/img/09d.png" alt="Shower Rain" width="50"/>
+  <img src="public/img/10d.png" alt="Rain" width="50"/>
+  <img src="public/img/11d.png" alt="Thunderstorm" width="50"/>
+  <img src="public/img/13d.png" alt="Snow" width="50"/>
+  <img src="public/img/50d.png" alt="Mist" width="50"/>
+</div>
 
 ## Функціональність
 
