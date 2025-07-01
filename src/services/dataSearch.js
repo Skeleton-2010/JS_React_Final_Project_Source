@@ -24,30 +24,18 @@ export const fetchWeather = async (lattitude, longitude, type = "weather") => {
   return response.data;
 };
 
-export const fetchNews = async (keyword, type = "everything", perPage = 10) => {
-  try {
-    const response = await axios.get(
-      `${newsAPI_BASE_URL}/${type}?q=${keyword}&pageSize=${perPage}&apiKey=${newsAPI_API_KEY}`,
-      {
-        headers: {
-          'X-Requested-With': 'XMLHttpRequest'
-        }
-      }
-    );
-    return {
-      articles: response.data.articles.map(article => ({
-        title: article.title,
-        description: article.description,
-        url: article.url,
-        image: article.urlToImage
-      }))
-    };
-  } catch (error) {
-    if (error.response) {
-      throw new Error(`API Error: ${error.response.data.message || 'Failed to fetch news'}`);
-    }
-    throw new Error('Network error: Please try again later');
-  }
+export const fetchNews = async (keyword, type = "search", perPage = 10) => {
+  const response = await axios.get(
+    `${newsAPI_BASE_URL}/search?q=${keyword}&page-size=${perPage}&api-key=${newsAPI_API_KEY}&show-fields=thumbnail,bodyText`
+  );
+  return {
+    articles: response.data.response.results.map(article => ({
+      title: article.webTitle,
+      description: article.fields.bodyText.substring(0, 200) + "...",
+      url: article.webUrl,
+      image: article.fields.thumbnail
+    }))
+  };
 };
 
 export const fetchImages = async (query, page=1, perPage=5) => {

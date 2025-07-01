@@ -6,12 +6,12 @@ const NewsElement = ({ data }) => {
   const { title, description, url, image } = data;
   return (
     <li className="news-element-main">
-      {image && <img src={image} alt="" className="article-img" />}
+      <img src={image} alt="" className="article-img" />
       <div className="article-txt">
         <h3 className="article-title">{title}</h3>
-        {description && <p className="article-desc">{description}</p>}
+        <p className="article-desc">{description}</p>
         <a className="article-url" href={url} target="_blank" rel="noreferrer">
-          Read More
+          More
         </a>
       </div>
     </li>
@@ -29,15 +29,10 @@ export const NewsListing = () => {
       setLoading(true);
       setError(null);
 
-      const data = await fetchNews("technology", "everything", articleN);
-      if (data && data.articles) {
-        setNewsInfo(data.articles);
-      } else {
-        setError("No news available");
-      }
+      const data = await fetchNews("technology", "search", articleN);
+      setNewsInfo(data.articles);
     } catch (error) {
-      console.error("News fetch error:", error);
-      setError(error.message || "Failed to load news");
+      setError(error.message);
     } finally {
       setLoading(false);
     }
@@ -47,31 +42,9 @@ export const NewsListing = () => {
     handleGetNews();
   }, [articleN]);
 
-  if (loading) return (
-    <div className="news-main">
-      <div className="loading-message">Loading news...</div>
-    </div>
-  );
-
-  if (error) return (
-    <div className="news-main">
-      <div className="error-message">
-        {error}
-        <button 
-          className="retry-button fc-btn" 
-          onClick={handleGetNews}
-        >
-          Try Again
-        </button>
-      </div>
-    </div>
-  );
-
-  if (!newsInfo || newsInfo.length === 0) return (
-    <div className="news-main">
-      <div className="no-news-message">No news available</div>
-    </div>
-  );
+  if (loading) return <div>Loading news...</div>;
+  if (error) return <div>Error: {error}</div>;
+  if (!newsInfo || newsInfo.length === 0) return <div>No news available</div>;
 
   return (
     <div className="news-main">
