@@ -1,6 +1,6 @@
 import { React } from "react";
 import {
-  BrowserRouter,
+  HashRouter,
   Routes,
   Route,
   Navigate,
@@ -55,14 +55,14 @@ export const HomePage = () => {
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Navigate to="/signup" />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/weather" element={<WeatherPage />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
