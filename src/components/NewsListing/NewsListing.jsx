@@ -3,14 +3,14 @@ import { fetchNews } from "../../services/dataSearch";
 import "./NewsListing.css";
 
 const NewsElement = ({ data }) => {
-  const { title, description, url, urlToImage } = data;
+  const { title, description, url, image } = data;
   return (
     <li className="news-element-main">
-      <img src={urlToImage} alt="" className="article-img" />
+      <img src={image} alt="" className="article-img" />
       <div className="article-txt">
         <h3 className="article-title">{title}</h3>
         <p className="article-desc">{description}</p>
-        <a className="article-url" href={url} target="_blank">
+        <a className="article-url" href={url} target="_blank" rel="noreferrer">
           More
         </a>
       </div>
@@ -29,7 +29,7 @@ export const NewsListing = () => {
       setLoading(true);
       setError(null);
 
-      const data = await fetchNews("trade", "everything", articleN);
+      const data = await fetchNews("technology", "search", articleN);
       setNewsInfo(data.articles);
     } catch (error) {
       setError(error.message);
@@ -47,15 +47,14 @@ export const NewsListing = () => {
   return (
     <div className="news-main">
       <ul className="news-list">
-        {newsInfo.map((art, idx) => (
-          <NewsElement data={art} />
+        {newsInfo && newsInfo.map((art, idx) => (
+          <NewsElement key={idx} data={art} />
         ))}
       </ul>
       <button
         className="news-more-btn fc-btn"
         onClick={() => {
           setArticleN(articleN + 5);
-          console.log(articleN);
         }}
       >
         {loading ? "Loading..." : "More Articles"} 

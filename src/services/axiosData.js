@@ -1,5 +1,5 @@
-export const newsAPI_API_KEY = "e46996397ed047bcae7295ece7e2460f";
-export const newsAPI_BASE_URL = "https://newsapi.org/v2";
+export const newsAPI_API_KEY = "c5d7a138c04c65a5c0c1f6d4d8d0f8b9";
+export const newsAPI_BASE_URL = "https://gnews.io/api/v4";
 
 export const openWeather_API_KEY = "42cbc6c9c7c8801f601d348746add29c";
 export const openWeather_BASE_URL = "https://api.openweathermap.org/data/2.5";
