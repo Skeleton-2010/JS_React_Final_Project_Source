@@ -79,26 +79,27 @@ npm run deploy
 
 ## Структура проекту
 
-\`\`\`
-src/
-├── components/          # React компоненти
-│   ├── AppFooter/      # Футер додатку
-│   ├── AppHeader/      # Хедер додатку
-│   ├── ImageDisplay/   # Компонент галереї
-│   ├── LocalWeatherDisplay/  # Відображення локальної погоди
-│   ├── NewsListing/    # Компонент новин
-│   ├── SignUpPage/     # Сторінка реєстрації
-│   ├── WeatherPage/    # Основна сторінка погоди
-│   └── WeatherSearch/  # Компонент пошуку погоди
-├── redux/              # Redux конфігурація
-│   ├── actions.js      # Action creators
-│   ├── constants.js    # Constants
-│   ├── reducer.js      # Reducers
-│   ├── selectors.js    # Selectors
-│   └── store.js        # Store configuration
-├── services/           # Сервіси API
-└── assets/            # Статичні ресурси
-\`\`\`
+```
+├── public/             # Публічні ресурси
+│   └── img/           # Зображення та іконки
+├── src/
+│   ├── components/    # React компоненти
+│   │   ├── AppFooter/      # Футер додатку
+│   │   ├── AppHeader/      # Хедер додатку
+│   │   ├── ImageDisplay/   # Компонент галереї
+│   │   ├── LocalWeatherDisplay/  # Відображення локальної погоди
+│   │   ├── NewsListing/    # Компонент новин
+│   │   ├── SignUpPage/     # Сторінка реєстрації
+│   │   ├── WeatherPage/    # Основна сторінка погоди
+│   │   └── WeatherSearch/  # Компонент пошуку погоди
+│   ├── redux/        # Redux конфігурація
+│   │   ├── actions.js      # Action creators
+│   │   ├── constants.js    # Constants
+│   │   ├── reducer.js      # Reducers
+│   │   ├── selectors.js    # Selectors
+│   │   └── store.js        # Store configuration
+│   └── services/     # Сервіси API
+```
 
 ## API
 
