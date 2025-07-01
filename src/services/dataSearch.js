@@ -27,7 +27,12 @@ export const fetchWeather = async (lattitude, longitude, type = "weather") => {
 export const fetchNews = async (keyword, type = "everything", perPage = 10) => {
   try {
     const response = await axios.get(
-      `${newsAPI_BASE_URL}/${type}?q=${keyword}&pageSize=${perPage}&apiKey=${newsAPI_API_KEY}`
+      `${newsAPI_BASE_URL}/${type}?q=${keyword}&pageSize=${perPage}&apiKey=${newsAPI_API_KEY}`,
+      {
+        headers: {
+          'X-Requested-With': 'XMLHttpRequest'
+        }
+      }
     );
     return {
       articles: response.data.articles.map(article => ({
