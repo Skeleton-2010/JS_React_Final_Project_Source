@@ -60,7 +60,11 @@ export const WeatherSearch = () => {
 
   return (
     <div className="weather-search-main">
-      <img src="/img/ForecastLogoBig.png" alt="LOGO" className="search-img" />
+      <img 
+        src={`${process.env.PUBLIC_URL}/img/ForecastLogoBig.png`}
+        alt="LOGO" 
+        className="search-img" 
+      />
       <div className="weather-date">
         <h4 className="weather-date-txt">
           {date.month} {date.year}

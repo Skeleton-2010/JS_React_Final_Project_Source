@@ -50,7 +50,11 @@ export const SignUpPage = () => {
 
   return (
     <div className="signup-page-main">
-      <img src="/img/ForecastLogoBig.png" alt="LOGO" className="signup-img" />
+      <img 
+        src={`${process.env.PUBLIC_URL}/img/ForecastLogoBig.png`} 
+        alt="LOGO" 
+        className="signup-img" 
+      />
       <div className="signup-main">
         <h2 className="signup-title">Sign Up</h2>
         <form action="" onSubmit={handleSubmit} className="signup-form">

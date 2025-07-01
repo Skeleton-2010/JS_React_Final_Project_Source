@@ -15,12 +15,7 @@ export const LocalWeatherDisplay = ({ city, lat, lon, id }) => {
   const dispatch = useDispatch();
 
   const getWeatherIcon = (iconCode) => {
-    try {
-      return require(`../../assets/images/${iconCode}.png`);
-    } catch (error) {
-      console.error(`Failed to load weather icon: ${iconCode}`, error);
-      return null;
-    }
+    return `${process.env.PUBLIC_URL}/img/${iconCode}.png`;
   };
 
   const handleGetWeather = async () => {

@@ -5,7 +5,11 @@ import "./AppHeader.css";
 export const AppHeader = () => {
   return (
     <header className="app-header-main">
-      <img src="/img/ForecastLogo.png" alt="logo" className="header-logo" />
+      <img 
+        src={`${process.env.PUBLIC_URL}/img/ForecastLogo.png`}
+        alt="logo" 
+        className="header-logo" 
+      />
       <nav className="header-nav">
         <Link to="/about" className="nav-link">
           Who are we
@@ -21,7 +25,11 @@ export const AppHeader = () => {
         <Link to="/signup">
           <button className="user-signup-btn fc-btn">Sign Up</button>
         </Link>
-        <img src="/img/ManIcon.png" alt="icon" className="user-icon-img" />
+        <img 
+          src={`${process.env.PUBLIC_URL}/img/ManIcon.png`}
+          alt="icon" 
+          className="user-icon-img" 
+        />
       </div>
     </header>
   );

@@ -10,7 +10,6 @@ import { useSelector } from "react-redux";
 import "./App.css";
 
 import { LocalWeatherDisplay } from "./components/LocalWeatherDisplay/LocalWeatherDisplay";
-// import { TemperatureChart } from "./components/TemperatureChart";
 import { NewsListing } from "./components/NewsListing/NewsListing";
 import { AppHeader } from "./components/AppHeader/AppHeader";
 import { WeatherPage } from "./components/WeatherPage/WeatherPage";
@@ -20,6 +19,9 @@ import { SignUpPage } from "./components/SignUpPage/SignUpPage";
 import { AppFooter } from "./components/AppFooter/AppFooter";
 
 import { selectAll } from "./redux/selectors";
+
+// Додаємо лог для перевірки PUBLIC_URL
+console.log("PUBLIC_URL:", process.env.PUBLIC_URL);
 
 export const HomePage = () => {
   const cities = useSelector(selectAll);
@@ -31,7 +33,6 @@ export const HomePage = () => {
       <hr />
       <div className="local-weather-collection">
         <h2>Weather Right Now</h2>
-        {/* <TemperatureChart /> */}
         <ul className="local-weathers-list">
           {cities.map(({ city, lat, lon, id }, idx) => (
             <LocalWeatherDisplay city={city} lat={lat} lon={lon} id={id} />

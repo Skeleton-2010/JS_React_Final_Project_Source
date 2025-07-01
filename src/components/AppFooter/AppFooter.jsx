@@ -5,9 +5,9 @@ export const AppFooter = () => {
   return (
     <footer className="app-footer-main">
       <img
-        src="/img/ForecastLogoBlack.png"
-        alt=""
-        className="footer-logo-img"
+        src={`${process.env.PUBLIC_URL}/img/ForecastLogoBlack.png`}
+        alt="logo"
+        className="footer-logo"
       />
       <div className="footer-address">
         <h3 className="footer-title">Address</h3>

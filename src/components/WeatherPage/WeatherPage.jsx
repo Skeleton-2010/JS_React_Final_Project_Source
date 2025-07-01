@@ -1,18 +1,7 @@
 import { React, useEffect, useState } from "react";
 import { useLocation, useParams, Link } from "react-router-dom";
-
 import { fetchWeather } from "../../services/dataSearch";
-
 import "./WeatherPage.css";
-
-// Імпортуємо зображення
-import visHi from "../../assets/images/vishi.png";
-import visLo from "../../assets/images/vislo.png";
-import humIcon from "../../assets/images/hum.png";
-import winHi from "../../assets/images/winhi.png";
-import winLo from "../../assets/images/winlo.png";
-import feelsIcon from "../../assets/images/feels.png";
-import presIcon from "../../assets/images/pres.png";
 
 export const WeatherPage = () => {
   const [weatherInfo, setWeatherInfo] = useState({});
@@ -59,7 +48,7 @@ export const WeatherPage = () => {
       <div className="weather-info-main">
         <div className="weather-factor">
           <img
-            src={goodVisibility ? visHi : visLo}
+            src={`${process.env.PUBLIC_URL}/img/${goodVisibility ? 'vishi' : 'vislo'}.png`}
             alt="visibility"
           />
           <h5>{goodVisibility ? "High Visibility" : "Low Visibility"}</h5>
@@ -67,14 +56,14 @@ export const WeatherPage = () => {
         </div>
 
         <div className="weather-factor">
-          <img src={humIcon} alt="humidity" />
+          <img src={`${process.env.PUBLIC_URL}/img/hum.png`} alt="humidity" />
           <h5>{highHumidity ? "High Humidity" : "Low Humidity"}</h5>
           <h2>{weatherInfo.main.humidity}%</h2>
         </div>
 
         <div className="weather-factor">
           <img
-            src={fastWind ? winHi : winLo}
+            src={`${process.env.PUBLIC_URL}/img/${fastWind ? 'winhi' : 'winlo'}.png`}
             alt="winds"
           />
           <h5>{fastWind ? "Fast Winds" : "Slow Winds"}</h5>
@@ -82,13 +71,13 @@ export const WeatherPage = () => {
         </div>
 
         <div className="weather-factor">
-          <img src={feelsIcon} alt="feels" />
+          <img src={`${process.env.PUBLIC_URL}/img/feels.png`} alt="feels" />
           <h5>Feels Like</h5>
           <h2>{weatherInfo.main.feels_like}°C</h2>
         </div>
 
         <div className="weather-factor">
-          <img src={presIcon} alt="pressure" />
+          <img src={`${process.env.PUBLIC_URL}/img/pres.png`} alt="pressure" />
           <h5>Pressure</h5>
           <h2>{weatherInfo.main.pressure} Pa</h2>
         </div>
