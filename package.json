@@ -2,7 +2,7 @@
   "name": "react-test",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Skeleton-2010.github.io/JS_React_Final_Project_Source",
+  "homepage": "https://Skeleton-2010.github.io",
   "dependencies": {
     "@redux-devtools/extension": "^3.3.0",
     "@reduxjs/toolkit": "^2.6.1",
