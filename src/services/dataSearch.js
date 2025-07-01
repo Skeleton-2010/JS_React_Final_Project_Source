@@ -26,9 +26,16 @@ export const fetchWeather = async (lattitude, longitude, type = "weather") => {
 
 export const fetchNews = async (keyword, type = "search", perPage = 10) => {
   const response = await axios.get(
-    `${newsAPI_BASE_URL}/${type}?q=${keyword}&max=${perPage}&apikey=${newsAPI_API_KEY}&lang=en`
+    `${newsAPI_BASE_URL}/search?q=${keyword}&page-size=${perPage}&api-key=${newsAPI_API_KEY}&show-fields=thumbnail,bodyText`
   );
-  return response.data;
+  return {
+    articles: response.data.response.results.map(article => ({
+      title: article.webTitle,
+      description: article.fields.bodyText.substring(0, 200) + "...",
+      url: article.webUrl,
+      image: article.fields.thumbnail
+    }))
+  };
 };
 
 export const fetchImages = async (query, page=1, perPage=5) => {

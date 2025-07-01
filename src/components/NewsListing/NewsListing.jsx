@@ -6,12 +6,12 @@ const NewsElement = ({ data }) => {
   const { title, description, url, image } = data;
   return (
     <li className="news-element-main">
-      <img src={image} alt="" className="article-img" />
+      {image && <img src={image} alt="" className="article-img" />}
       <div className="article-txt">
         <h3 className="article-title">{title}</h3>
         <p className="article-desc">{description}</p>
         <a className="article-url" href={url} target="_blank" rel="noreferrer">
-          More
+          Read More
         </a>
       </div>
     </li>
@@ -30,9 +30,13 @@ export const NewsListing = () => {
       setError(null);
 
       const data = await fetchNews("technology", "search", articleN);
-      setNewsInfo(data.articles);
+      if (data && data.articles) {
+        setNewsInfo(data.articles);
+      } else {
+        setError("No news available");
+      }
     } catch (error) {
-      setError(error.message);
+      setError(error.message || "Failed to load news");
     } finally {
       setLoading(false);
     }
@@ -42,20 +46,21 @@ export const NewsListing = () => {
     handleGetNews();
   }, [articleN]);
 
+  if (loading) return <div>Loading news...</div>;
   if (error) return <div>Error: {error}</div>;
+  if (!newsInfo || newsInfo.length === 0) return <div>No news available</div>;
 
   return (
     <div className="news-main">
       <ul className="news-list">
-        {newsInfo && newsInfo.map((art, idx) => (
+        {newsInfo.map((art, idx) => (
           <NewsElement key={idx} data={art} />
         ))}
       </ul>
       <button
         className="news-more-btn fc-btn"
-        onClick={() => {
-          setArticleN(articleN + 5);
-        }}
+        onClick={() => setArticleN(prev => prev + 5)}
+        disabled={loading}
       >
         {loading ? "Loading..." : "More Articles"} 
       </button>
